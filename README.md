@@ -1,7 +1,7 @@
 
-# Predicting Methylation from Sequence and Gene Expression Using Deep Learning with Attention
+# Tensor Molecular Cartography of Pathology Whole-Slide Images Links Tumor Heterogeneity to Survival in Breast and Lung Cancer
 
-This project contains the source code used in: "XX" by Levy-Jurgenson et al.
+This project contains the source code used in: "Tensor Molecular Cartography of Pathology Whole-Slide Images Links Tumor Heterogeneity to Survival in Breast and Lung Cancer" by Levy-Jurgenson et al.
 
 ### Prerequisites 
 
