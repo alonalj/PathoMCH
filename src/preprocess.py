@@ -461,13 +461,10 @@ if __name__ == '__main__':
     c = Conf_BRCA_TRAITS_miR_17_5p_extreme()
     # c = Conf_BRCA_DUMMY_LABEL()  # used to generate a tfrecord per sample for post-training predictions
 
-    cleanup = True
-    remove_patient_ids_master_split = True  # if False it will use ..patient_ids..pkl found under res to split.
+    cleanup = True  # True if you're ready to move on to a new trait and don't want and tfrec / tfrecords etc. left.
+    remove_patient_ids_master_split = False  # False will use ..patient_ids..pkl found under res to split.
+    tile_slides = True  # turn to False if you no longer want it to tile slides (e.g. new trait, but same slides)
 
-    if c.ZOOM_LEVEL == 20:
-        tile_slides = False
-    else:
-        tile_slides = True
     create_img_path_to_labels_dict = True
     if c.NAME == 'Dummy':
         create_per_sample_tf_records = True

@@ -77,11 +77,3 @@ def deep_zoom_tile(slide_path, output_folder=Conf().IMG_PATH, xZoom=Conf().ZOOM_
                 patch.save(fname)
     save_obj(blank_pct_list, 'blank_counts_zoom_{}_size_{}_{}'.format(xZoom, patch_size, slide_name))
 
-
-if __name__ == '__main__':
-    slide_path = '/Users/levy.alona/Google Drive/phd/patho/unsupervised_object_detection/data/slides/diagnostic/CD4-T81 - 2020-01-17 12.06.38.ndpi'
-
-    from conf import Conf
-    c = Conf()
-    out_folder = c.IMG_PATH
-    deep_zoom_tile(slide_path, xZoom=5)

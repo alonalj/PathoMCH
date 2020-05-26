@@ -18,7 +18,7 @@ print('Number of devices: {}'.format(strategy.num_replicas_in_sync))
 # General settings
 c = Conf_BRCA_TRAITS_miR_17_5p_extreme()
 c.set_local()
-training = False # set to False when you want to predict
+training = False  # set to False for predictions
 resample_round = 0  # can be replaced by sys.argv[..] to automate using external script
 print("Resample round {}".format(resample_round))
 c.APPLY_AUGMENTATIONS = True  # flip augmentations that apply only to train set
