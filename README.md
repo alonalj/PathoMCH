@@ -19,7 +19,7 @@ On Google Cloud platform, we specifically used the following settings (adapted t
 Less CPUs can be used by changing NUM_CPU in conf.py but this will slow down preprocessing significantly.  
 
 ## Training and evaluating models
-This section covers the code you will likely need to adapt to your needs. We recommend reading through this entire section before staring so that your configuration (which you can control using Conf objects) will be well suited to your needs throughout the entire process. 
+This section covers the code you will likely need to adapt to your needs. We recommend reading through this entire section before starting so that your configuration (which you can control using Conf objects) will be well suited to your needs throughout the entire process. 
 
 Note that the files under src are in a flattened hierarchy to keep things simple when transitioning between a 
 local environment and linux servers. 
