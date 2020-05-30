@@ -49,6 +49,6 @@ If you want to change these formats, simply modify: `Conf_Postprocess().DATA_SPL
 
 
 ## Generating molecular cartographies and deriving heterogeneity
-To generate molecular cartogrpahies and heterogeneity simply use cartography.py and heterogeneity.py with the same configuration settings (Conf and Conf_Postprocess) as used in evaluation.
+To generate molecular cartogrpahies and heterogeneity simply use `cartography.py` and `heterogeneity.py` with the same configuration settings (Conf and Conf_Postprocess) as used in evaluation.
 The output will be generated under `../out/<c.TCGA_COHORT_NAME>/` under `cartography` and `heterogeneity`. HTI appears in the name of each image under `heterogeneity` (e.g. for heterogeneity map ending with: '..._0.64.png', HTI is 0.64).  
 
