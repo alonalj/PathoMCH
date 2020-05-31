@@ -5,9 +5,19 @@ This project contains the source code used in: "Spatial Transcriptomics Inferred
 
 ### Prerequisites 
 
-Python 3.6 
+* Python 3.6 
 
-Tensorflow 1.4.0 (pip3 install tensorflow==1.14.0 or on gpu: pip3 install tensorflow-gpu==1.14.0)
+* Tensorflow 1.4.0 (pip3 install tensorflow==1.14.0 or on gpu: pip3 install tensorflow-gpu==1.14.0)
+
+* OpenSlide Python:
+
+    Use installations here: https://openslide.org/download/ or use below example for Ubuntu:
+
+    `apt-get install python3-openslide`
+
+    and then:
+
+    `pip3 install openslide-python`
 
 On Google Cloud platform, we specifically used the following settings (adapted to tensorflow 1.14.0):
 * For training on GPUs:
