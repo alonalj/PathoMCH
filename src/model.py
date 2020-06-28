@@ -4,6 +4,8 @@ from network_architectures import *
 import os
 from tfrecords_reader import *
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '3'
+tf.logging.set_verbosity(tf.logging.ERROR)
+
 from tensorflow.python.keras.utils import multi_gpu_model
 
 '''
@@ -18,7 +20,7 @@ print('Number of devices: {}'.format(strategy.num_replicas_in_sync))
 # General settings
 c = Conf_BRCA_TRAITS_miR_17_5p_extreme()
 c.set_local()
-training = False  # set to False for predictions
+training = True  # set to False for predictions
 resample_round = 0  # can be replaced by sys.argv[..] to automate using external script
 print("Resample round {}".format(resample_round))
 c.APPLY_AUGMENTATIONS = True  # flip augmentations that apply only to train set
