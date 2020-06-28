@@ -41,7 +41,7 @@ There are 5 main files required for training and evaluating a model:
     * `CLINICAL_FILEPATH` - path to csv that includes a sample ID column and a label column with the name matching `CLINICAL_LABEL_COLS`
     * `CLINICAL_LABEL_COLS` - name of column used for labeling. All samples that have labels under this column will be included in model development by default (you can create other label columns to store ground truth for all samples).
     * `CLINICAL_LABELS` - possible labels under `CLINICAL_LABEL_COLS` e.g. `['lo','hi']`
-    * `SVS_SLIDES_PATH` - path to slides
+    * `SVS_SLIDES_PATH` - path to slides. Default is data->slides->diagnostic.
     * `NUM_CPU` - number of CPUs available for tiling the slides and generating tfrecords
     * `NAME` - the prefix name of your models. Use a unique name per trait if you don't want results to get run over between traits.
     * `TCGA_COHORT_NAME` - controls your out subfolder name. Useful if you're going to be using more than one dataset so results don't get run over.
@@ -56,6 +56,14 @@ After generating tfrecords, you will have to move the resulting tfrec and tfreco
     * For predictions, the default is: `../res/postprocess/<c.TCGA_COHORT_NAME>/preds/<c.NAME>/'` (c is a Conf object from `conf.py`). Under this folder you need to place the exact folder produced during inference (i.e. `../out/<c.TCGA_COHORT_NAME>/predict/`). Simply copy these folders from your server to this postprocess path.
 If you want to change these formats, simply modify: `Conf_Postprocess().DATA_SPLIT_DIR`) and `Conf_Postprocess().MODEL_PREDS_DIR_WITH_RESAMPLE_ROUND`.
 5. `evaluate.py` - evaluates the model predictions and produces log files under '../out/'. Expects to see the aforementioned data_split and predictions pickles under `../res/postprocess/..` (see previous point).
+
+## Training on mock data
+We have included under the `res` folder pre-generated train and validation mock tfrec files. You may use these to check 
+that the training pipeline works properly by running `model.py` with the default settings (currently set to `training = True`). 
+Note that for this data, the model is not expected to converge, nor can this data be used to train a clinically meaningful model. 
+For this purpose, original whole-slide images need to be placed under data->slides folder as explained above (see `conf.py`). 
+Slides may be obtained from the GDC website, as discussed in the Methods section. The manifest files that list the slides 
+used in this research are provided under data->slides. 
 
 
 ## Generating molecular cartographies and deriving heterogeneity
