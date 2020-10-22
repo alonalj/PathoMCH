@@ -28,6 +28,10 @@ On Google Cloud platform, we specifically used the following settings (adapted t
 * For preprocessing (tiling WSIs and creating tfrecords) we used the same settings above with no GPUs, but with 60 CPUs.
 Less CPUs can be used by changing NUM_CPU in conf.py but this will slow down preprocessing significantly.  
 
+## Obtaining our pre-trained models / output predictions
+We will gladly share pre-trained weights and/or predictions for reasonable requests. Please e-mail us from your institution's e-mail address stating the intended use.   
+
+
 ## Training and evaluating models
 This section covers the code you will likely need to adapt to your needs. We recommend reading through this entire section before starting so that your configuration (which you can control using Conf objects) will be well suited to your needs throughout the entire process. 
 
