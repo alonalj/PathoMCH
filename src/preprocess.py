@@ -452,7 +452,6 @@ def cleanup_previous_run(remove_patient_ids_master_split):
     del_train_val_test_img_copies()
 
 
-# FOR TESTING
 if __name__ == '__main__':
 
     # first use gdc-client to obtain slides with hith manifest:  # TODO
