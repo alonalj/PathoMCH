@@ -29,7 +29,7 @@ On Google Cloud platform, we specifically used the following settings (adapted t
 Less CPUs can be used by changing NUM_CPU in conf.py but this will slow down preprocessing significantly.  
 
 ## Obtaining our pre-trained models / output predictions
-We will gladly share pre-trained weights and/or predictions for reasonable requests. Please e-mail us from your institution's e-mail address stating the intended use.   
+We will gladly share pre-trained weights and/or predictions for reasonable requests. Please e-mail us from your institution's e-mail address stating the intended use (levyalona at gmail dot com).   
 
 
 ## Training and evaluating models
