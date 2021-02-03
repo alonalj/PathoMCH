@@ -7,7 +7,7 @@ This project contains the source code used in: "Spatial Transcriptomics Inferred
 
 * Python 3.6 
 
-* Tensorflow 1.14.0 (pip3 install tensorflow==1.14.0 or on gpu: pip3 install tensorflow-gpu==1.14.0)
+* Tensorflow 1.14.0 (pip3 install tensorflow==1.14.0 or on gpu: pip3 install tensorflow-gpu==1.14.0). Make sure to uninstall other Tensorflow versions first (use uninstall instead of install).
 
 * OpenSlide Python:
 
