@@ -44,7 +44,7 @@ There are 5 main files required for training and evaluating a model:
     Some parameters you will likely have to adapt to your needs are:
     * `CLINICAL_FILEPATH` - path to csv that includes a sample ID column and a label column with the name matching `CLINICAL_LABEL_COLS`
     * `CLINICAL_LABEL_COLS` - name of column used for labeling. All samples that have labels under this column will be included in model development by default (you can create other label columns to store ground truth for all samples).
-    * `CLINICAL_LABELS` - possible labels under `CLINICAL_LABEL_COLS` e.g. `['lo','hi']`
+    * `CLINICAL_LABELS` - list of labels to be used out of those under `CLINICAL_LABEL_COLS` e.g. `['lo','hi']`
     * `SVS_SLIDES_PATH` - path to slides. Default is data->slides->diagnostic.
     * `NUM_CPU` - number of CPUs available for tiling the slides and generating tfrecords
     * `NAME` - the prefix name of your models. Use a unique name per trait if you don't want results to get run over between traits.
