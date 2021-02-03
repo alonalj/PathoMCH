@@ -7,7 +7,7 @@ This project contains the source code used in: "Spatial Transcriptomics Inferred
 
 * Python 3.6 
 
-* Tensorflow 1.4.0 (pip3 install tensorflow==1.14.0 or on gpu: pip3 install tensorflow-gpu==1.14.0)
+* Tensorflow 1.14.0 (pip3 install tensorflow==1.14.0 or on gpu: pip3 install tensorflow-gpu==1.14.0)
 
 * OpenSlide Python:
 
@@ -22,7 +22,7 @@ This project contains the source code used in: "Spatial Transcriptomics Inferred
 On Google Cloud platform, we specifically used the following settings (adapted to tensorflow 1.14.0):
 * For training on GPUs:
     * Operating system: "Deep Learning on Linux" 
-    * Version: "Deep Learning Image: TensorFlow 1.15.0 m42" (uninstall 1.15 and install 1.14 instead)
+    * Version: "Deep Learning Image: TensorFlow 1.15.0 m42" (uninstall 1.15 and install 1.14 instead, see prerequisites)
     * Number of K80 GPUs per vm: 8
 
 * For preprocessing (tiling WSIs and creating tfrecords) we used the same settings above with no GPUs, but with 60 CPUs.
