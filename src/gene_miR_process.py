@@ -133,8 +133,6 @@ if __name__ == '__main__':
     cohort_data_expression_filepath = Pancan_Settings.out_subdata_format.format(c.PANCAN_NAME_SUFFIX)
     # EXPLORE:
     # genes = sort_trait_by_highest_var_across_patients(Pancan_Settings, cohort_data_expression_filepath)
-    # res = get_gene_subset(Pancan_Settings, genes, ['17', '25', '21', '92', '31', '224', '34b', '15b', '210', '197', '30c', '100', '494', '31', '30b', '221'])
-    # print(res)
 
     # MIRs adding chosen gene labels:
     if c.TCGA_COHORT_NAME == 'brca':
@@ -156,8 +154,6 @@ if __name__ == '__main__':
     cohort_data_expression_filepath = Pancan_Settings.out_subdata_format.format(c.PANCAN_NAME_SUFFIX)
     # EXPLORE:
     # genes = sort_trait_by_highest_var_across_patients(Pancan_Settings, cohort_data_expression_filepath)
-    # res = get_gene_subset(Pancan_Settings, genes, ['ALK', 'CD274', 'B7-H1'])
-    # print(genes)
 
     # Genes adding chosen gene labels:
     if c.TCGA_COHORT_NAME == 'brca':
