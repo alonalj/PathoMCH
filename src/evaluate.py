@@ -132,7 +132,7 @@ def analyze_predictions(confs, conf_postprocess,
         patients_test = conf_postprocess.get_test_patients()
 
         for resample_round in resample_round_list:
-            preds_folder = conf_postprocess.MODEL_PREDS_DIR_WITH_CV.format(resample_round)
+            preds_folder = conf_postprocess.MODEL_PREDS_DIR_WITH_RESAMPLE_ROUND.format(resample_round)
             all_slide_score_paths = glob.glob(preds_folder + 'scores_*')
 
             patients_val, patients_train = conf_postprocess.get_val_train_patients(resample_round)
@@ -227,7 +227,7 @@ def analyze_test_consensus(c, conf_postprocess,
     label_to_numeric_dict = {c.LABELS[0]: 0, c.LABELS[1]: 1}
     patient_ids_to_actual = get_slide_actuals(c.CLINICAL_FILEPATH, 'Patient ID', c.CLINICAL_LABEL_COLS[0],
                                               '../out/ground_truth_{}'.format(c.NAME), label_to_numeric_dict)
-    preds_folder = conf_postprocess.MODEL_PREDS_DIR_WITH_CV
+    preds_folder = conf_postprocess.MODEL_PREDS_DIR_WITH_RESAMPLE_ROUND
 
     # patients_test = load_obj('test_img_paths_DX', conf_postprocess.DATA_SPLIT_DIR + 'test/')
     # patients_test = list(set([p.split('/')[-1].split('.')[0][:12] for p in patients_test]))
@@ -282,7 +282,7 @@ def scores_for_plots(c, conf_postprocess, resample_round, data, sub_data, correl
         assert len([p for p in unlabeled_patient_ids if (p in patients_train) or (p in patients_test) or (p in patients_val)]) == 0
 
     trait_name = c.NAME.split('_')[0]
-    preds_folder = conf_postprocess.MODEL_PREDS_DIR_WITH_CV.format(resample_round)
+    preds_folder = conf_postprocess.MODEL_PREDS_DIR_WITH_RESAMPLE_ROUND.format(resample_round)
     all_slide_score_paths = glob.glob(preds_folder + 'scores_*')
     if sub_data == 'ood' or sub_data == 'ood_near':
         chosen_slides = get_slide_ids_for_patient_subset(c, all_slide_score_paths, unlabeled_patient_ids)
@@ -354,7 +354,7 @@ def make_consensus_preds(c, n_top, metric='auc'):
     first_resample_round = top_resample_round_ids[0]
     first_resample_round_folder = model_postprocess_conf.MODEL_PREDS_DIR_WITH_RESAMPLE_ROUND.format(first_resample_round)
     model_postprocess_conf_consensus = Conf_Postprocess_Consensus(c)
-    consensus_preds_path = model_postprocess_conf_consensus.MODEL_PREDS_DIR_WITH_CV.format('consensus')
+    consensus_preds_path = model_postprocess_conf_consensus.MODEL_PREDS_DIR_WITH_RESAMPLE_ROUND.format('consensus')
 
     if not os.path.exists(consensus_preds_path):
         os.makedirs(consensus_preds_path)
