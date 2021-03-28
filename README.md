@@ -53,6 +53,7 @@ There are 5 main files required for training and evaluating a model:
 2. `preprocess.py`: tiles slides (if `tile_slides = True`) and generates sharded tfrecords of two types: one type is for training and validation. These end with '.tfrec' and don't have any specific sample ID in their name. The second type ends with '.tfrecords' - there will be one per sample in the data. These are used only during inference (when you set `training=False` in `model.py`).
 After generating tfrecords, you will have to move the resulting tfrec and tfrecords to your desired location (we used google cloud storage (GCS)), which means you will need to adapt the following paths in `conf.py`:
 `GCS_PATTERN` and `GCS_PATTERN_PER_SAMPLE`. IMPORTANT: Make sure to save the `.pkl` files named `..patient_ids..pkl` and `..img_paths..pkl` as they are used during evaluation.
+    * If you intend to train on more than one trait for the same cohort, make sure that, after preprocessing for your first trait, you set `remove_patient_ids_master_split = False` so that all traits see the same patient split.
 3. `model.py` 
     * The only necessary parts to modify are under `# General settings -- TO BE MODIFIED BY YOU ---`, some described here:
     * While debugging locally (not yet training the 'real' model), leave `c.set_local()` in `model.py`. When ready to fully train on GPUs, comment this out.
