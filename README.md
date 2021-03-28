@@ -71,7 +71,7 @@ that the training pipeline works properly by running `model.py` with the default
 Note that for this data, the model is not expected to converge, nor can this data be used to train a clinically meaningful model. 
 For this purpose, original whole-slide images need to be placed under data->slides folder as explained above (see `conf.py`). 
 Slides may be obtained from the GDC website, as discussed in the Methods section. The manifest files that list the slides 
-used in this research are provided under 'data'. 
+used in this research are provided under the 'data' folder. 
 
 
 ## Generating molecular cartographies and deriving heterogeneity
