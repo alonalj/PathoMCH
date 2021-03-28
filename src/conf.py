@@ -77,6 +77,8 @@ class Conf:
         self.LOCAL = True
         self.GCS_PATTERN = '../res/{}*.tfrec'
         self.GCS_PATTERN_PER_SAMPLE = '../res/all_samples_dummy_labels/*tfrecords'
+        print("!!! Using LOCAL settings !!! This means you are not training the full model optimally. To fully"
+              "train, comment out: 'c.set_local()' in model.py")
 
 
 # presets

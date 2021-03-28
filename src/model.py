@@ -16,7 +16,6 @@ Requires tensorflow 1.14 and python 3 (specifically developed using TensorFlow 1
 # Train on multiple GPUs (if not available will default to 1 replica)
 strategy = tf.distribute.MirroredStrategy()
 print('Number of devices: {}'.format(strategy.num_replicas_in_sync))
-
 # General settings
 c = Conf_BRCA_TRAITS_miR_17_5p_extreme()
 c.set_local()
@@ -93,6 +92,8 @@ with strategy.scope():
         checkpoint_prefix_auc = os.path.join(model_folder_auc, ckpt_prefix + "_{epoch}")
         STEPS_PER_EPOCH_TRAIN = n_train // (BATCH_SIZE * 16)  # division by batch size due to BATCH_SIZE number of tiles being processed per step. Division by 16 to evaluate every 1/16th epoch to avoid overfitting due to tile similarities between batches (many tiles per slide make it seem like there's a lot of the same per slide)
         if c.LOCAL:  # TODO: remove
+            print("!!! Using LOCAL settings !!! This means you are not training the full model optimally. To fully"
+                  "train, comment out: 'c.set_local()' in model.py")
             STEPS_PER_EPOCH_TRAIN = 2
             STEPS_PER_EPOCH_VAL = 2
         print("steps TRAIN", STEPS_PER_EPOCH_TRAIN)
