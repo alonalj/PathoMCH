@@ -16,16 +16,17 @@ Requires tensorflow 1.14 and python 3 (specifically developed using TensorFlow 1
 # Train on multiple GPUs (if not available will default to 1 replica)
 strategy = tf.distribute.MirroredStrategy()
 print('Number of devices: {}'.format(strategy.num_replicas_in_sync))
-# General settings
+
+# General settings -- TO BE MODIFIED BY YOU ---
 c = Conf_BRCA_TRAITS_miR_17_5p_extreme()
-c.set_local()
+c.set_local()  # comment this out when you're done debugging locally, and want to train a full model on GPUs.
 training = True  # set to False for predictions
-resample_round = 0  # can be replaced by sys.argv[..] to automate using external script
+resample_round = 0  # which of the resampling rounds to use? We had 5 (0,1...,4). Can be replaced by sys.argv[..] to automate using external script
 print("Resample round {}".format(resample_round))
-c.APPLY_AUGMENTATIONS = True  # flip augmentations that apply only to train set
-c.NETWORK_NAME = 'inception'
 
 # Training settings
+c.APPLY_AUGMENTATIONS = True  # flip augmentations that apply only to train set
+c.NETWORK_NAME = 'inception'
 EPOCHS = 1000  # setting an upper limit. The model will likely stop before, when converging on validation set.
 lr = 0.001
 BATCH_SIZE_PER_REPLICA = c.BATCH_SIZE

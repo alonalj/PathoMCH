@@ -54,6 +54,8 @@ There are 5 main files required for training and evaluating a model:
 After generating tfrecords, you will have to move the resulting tfrec and tfrecords to your desired location (we used google cloud storage (GCS)), which means you will need to adapt the following paths in `conf.py`:
 `GCS_PATTERN` and `GCS_PATTERN_PER_SAMPLE`. IMPORTANT: Make sure to save the `.pkl` files named `..patient_ids..pkl` and `..img_paths..pkl` as they are used during evaluation.
 3. `model.py` 
+    * The only necessary parts to modify are under `# General settings -- TO BE MODIFIED BY YOU ---`, some described here:
+    * While debugging locally (not yet training the 'real' model), leave `c.set_local()` in `model.py`. When ready to fully train on GPUs, comment this out.
     * If `training = True` trains Inception-v3 using the training and validation tfrecords under `GCS_PATTERN`. It will use all available GPUs on the machine (or only CPU if no GPUs are detected). 
     * If `training = False` it will load the latest checkpoint found under `LOAD_WEIGHTS_PATH` (in conf) and will begin producing predictions for each sample using the per-sample tfrecords files under `GCS_PATTERN_PER_SAMPLE` (note that if `LOAD_WEIGHTS_PATH = None` when `train = False` it will throw an exception).
 4. `conf_postprocess.py` - settings used for evaluation/cartography/heterogeneity. The current format is derived from settings in your Conf object, so you can tell where the files are expected to be from your conf settings:
