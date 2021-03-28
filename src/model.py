@@ -91,7 +91,7 @@ with strategy.scope():
         checkpoint_prefix_loss = os.path.join(model_folder_loss, ckpt_prefix + "_{epoch}")
         checkpoint_prefix_acc = os.path.join(model_folder_acc, ckpt_prefix + "_{epoch}")
         checkpoint_prefix_auc = os.path.join(model_folder_auc, ckpt_prefix + "_{epoch}")
-        STEPS_PER_EPOCH_TRAIN = n_train // (BATCH_SIZE * 16)  # division by batch size due to BATCH_SIZE number of tiles being processed per step. Division by 16 to evaluate every 16th epoch to avoid overfitting due to tile similarities between batches (many tiles per slide make it seem like there's a lot of the same per slide)
+        STEPS_PER_EPOCH_TRAIN = n_train // (BATCH_SIZE * 16)  # division by batch size due to BATCH_SIZE number of tiles being processed per step. Division by 16 to evaluate every 1/16th epoch to avoid overfitting due to tile similarities between batches (many tiles per slide make it seem like there's a lot of the same per slide)
         if c.LOCAL:  # TODO: remove
             STEPS_PER_EPOCH_TRAIN = 2
             STEPS_PER_EPOCH_VAL = 2
