@@ -54,7 +54,7 @@ There are 5 main files required for training and evaluating a model:
 
     (1) Sharded tfrecords for training and validation - this is using your Conf object. These end with '.tfrec' and don't have any specific sample ID in their name. 
     
-    (2) Per-sample tfrecords used for per-sample predictions. These are generated using a new configuration, e.g.: `c = Conf_BRCA_DUMMY_LABEL()` (make sure to have a 'dummy' column in you clinical file which will hold ALL samples' labels). These will ends with '.tfrecords' - there will be one per sample in the data. These are used only during inference (when you set `training=False` in `model.py`).
+    (2) Per-sample tfrecords used for per-sample predictions. These are generated using a new configuration, e.g.: `c = Conf_BRCA_DUMMY_LABEL()` (make sure to have a 'dummy' column in you clinical file which will hold ALL samples' labels). These will end with '.tfrecords' - there will be one per sample in the data. These are used only during inference (when you set `training=False` in `model.py`).
 
     After generating tfrecords, you will have to move the resulting tfrec and tfrecords to your desired location (we used google cloud storage (GCS)), which means you will need to adapt the following paths in `conf.py`:
 `GCS_PATTERN` and `GCS_PATTERN_PER_SAMPLE`. IMPORTANT: Make sure to save the `.pkl` files named `..patient_ids..pkl` and `..img_paths..pkl` as they are used during evaluation.
