@@ -50,8 +50,13 @@ There are 5 main files required for training and evaluating a model:
     * `NAME` - the prefix name of your models. Use a unique name per trait if you don't want results to get run over between traits.
     * `TCGA_COHORT_NAME` - controls your out subfolder name. Useful if you're going to be using more than one dataset so results don't get run over.
     * `LOAD_WEIGHTS_PATH` - should be `None` unless you are: (a) training from a pre-trained model or (b) running inference post-training. In these cases `None` should be replaced with the path to the **directory** in which your weights reside (e.g. `../out/<model_name>/auc/`).   
-2. `preprocess.py`: tiles slides (if `tile_slides = True`) and generates sharded tfrecords of two types: one type is for training and validation. These end with '.tfrec' and don't have any specific sample ID in their name. The second type ends with '.tfrecords' - there will be one per sample in the data. These are used only during inference (when you set `training=False` in `model.py`).
-After generating tfrecords, you will have to move the resulting tfrec and tfrecords to your desired location (we used google cloud storage (GCS)), which means you will need to adapt the following paths in `conf.py`:
+2. `preprocess.py`: tiles slides (if `tile_slides = True`) and generates sharded tfrecords of two types:
+
+    (1) Sharded tfrecords for training and validation - this is using your Conf object. These end with '.tfrec' and don't have any specific sample ID in their name. 
+    
+    (2) Per-sample tfrecords used for per-sample predictions. These are generated using a new configuration, e.g.: `c = Conf_BRCA_DUMMY_LABEL()` (make sure to have a 'dummy' column in you clinical file which will hold ALL samples' labels). These will ends with '.tfrecords' - there will be one per sample in the data. These are used only during inference (when you set `training=False` in `model.py`).
+
+    After generating tfrecords, you will have to move the resulting tfrec and tfrecords to your desired location (we used google cloud storage (GCS)), which means you will need to adapt the following paths in `conf.py`:
 `GCS_PATTERN` and `GCS_PATTERN_PER_SAMPLE`. IMPORTANT: Make sure to save the `.pkl` files named `..patient_ids..pkl` and `..img_paths..pkl` as they are used during evaluation.
     * If you intend to train on more than one trait for the same cohort, make sure that, after preprocessing for your first trait, you set `remove_patient_ids_master_split = False` so that all traits see the same patient split.
 3. `model.py` 
