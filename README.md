@@ -33,7 +33,7 @@ We will gladly share pre-trained weights and/or predictions for reasonable reque
 You can easily load them by using your Conf object's `LOAD_WEIGHTS_PATH` (replace `None` with the directory that contains only the weights you wish to load, e.g.: `../out/<model_name>/auc/`
 
 ## Training and evaluating models
-This section covers the code you will likely need to adapt to your needs. We recommend reading through this entire section before starting so that your configuration (which you can control using Conf objects) will be well suited to your needs throughout the entire process. 
+This section covers the code you will likely need to adapt to your needs. We recommend that you first clone this repository, then try to run it on your PC using the "Training on mock data" section (below) and then start to read through this section so that you can identify, 'hands-on', the different parts of the code that you might need to adapt. 
 
 Note that the files under src are in a flattened hierarchy to keep things simple when transitioning between a 
 local environment and linux servers. 
