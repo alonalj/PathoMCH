@@ -79,7 +79,9 @@ Slides may be obtained from the GDC website, as discussed in the Methods section
 used in this research are provided under the 'data' folder. 
 
 
-## Generating molecular cartographies and deriving heterogeneity
-To generate molecular cartogrpahies and heterogeneity simply use `cartography.py` and `heterogeneity.py` with the same configuration settings (Conf and Conf_Postprocess) as used in evaluation.
-The output will be generated under `../out/<c.TCGA_COHORT_NAME>/` under `cartography` and `heterogeneity`. HTI appears in the name of each image under `heterogeneity` (e.g. for heterogeneity map ending with: '..._0.64.png', HTI is 0.64).  
+## Generating molecular cartographies and computing heterogeneity scores
+To generate molecular cartogrpahies and heterogeneity maps simply use `cartography.py` and `heterogeneity.py` with the same configuration settings (Conf and Conf_Postprocess) as used in evaluation.
+The output will be generated under `../out/<c.TCGA_COHORT_NAME>/` under `cartography` and `heterogeneity`. HTI appears in the name of each image under `heterogeneity` (e.g. for heterogeneity map ending with: '..._0.64.png', HTI is 0.64).
+
+We have created a new python package, [hta](https://github.com/alonalj/hta), which can be used to compute a sample's spatial heterogeneity score using its molecular cartographies. For more details see [our HTA github page](https://github.com/alonalj/hta) and our [HTA paper](https://academic.oup.com/bioinformatics/article/37/21/3796/6343441).  
 
