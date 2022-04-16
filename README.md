@@ -3,7 +3,7 @@
 
 This project contains the source code used in: "Spatial Transcriptomics Inferred from Pathology Whole-Slide Images Links Tumor Heterogeneity to Survival in Breast and Lung Cancer" by Levy-Jurgenson et al.
 
-Note: If you are looking to compute a sample's heterogeneity score or create its heterogeneity maps (e.g. after obtaining predictions using PathoMCH, or using other spatial transcriptomics data such as 10x Visium), we recommend using our HTA python package (see [our HTA github page](https://github.com/alonalj/hta)), also described in our [HTA paper](https://academic.oup.com/bioinformatics/article/37/21/3796/6343441).  
+Note: If you are looking to compute a sample's spatial heterogeneity score or create its heterogeneity maps (e.g. after obtaining predictions using PathoMCH, or using other spatial transcriptomics data such as 10x Visium), we recommend using our HTA python package (see [our HTA github page](https://github.com/alonalj/hta)), also described in our [HTA paper](https://academic.oup.com/bioinformatics/article/37/21/3796/6343441).  
 
  
 
